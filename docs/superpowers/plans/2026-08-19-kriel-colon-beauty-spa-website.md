@@ -327,6 +327,9 @@ export const SITE = {
   name: "Kriel Colon & Beauty Spa",
   igHandle: "kriel_colon_beauty_spa",
   address: "Kraanvoel Avenue, Ga-Nala, Mpumalanga",
+  // TODO(client): placeholder — replace with the spa's real WhatsApp Business number before launch
+  whatsappNumber: "27000000000",
+  whatsappMessage: "Hi! I'd like to book an appointment at Kriel Colon & Beauty Spa.",
   hours: [
     { day: "Monday", open: "8:00 AM", close: "5:00 PM" },
     { day: "Tuesday", open: "8:00 AM", close: "5:00 PM" },
@@ -471,15 +474,15 @@ git commit -m "feat: add reduced-motion hook and RevealOnScroll wrapper"
 
 ---
 
-## Task 4: Booking CTA Components (`BookNowButton`, `StickyBookBar`)
+## Task 4: Booking CTA Components (`BookNowButton`, `WhatsAppButton`, `StickyBookBar`)
 
 **Files:**
-- Create: `components/ui/BookNowButton.tsx`, `components/ui/StickyBookBar.tsx`
+- Create: `components/ui/BookNowButton.tsx`, `components/ui/WhatsAppButton.tsx`, `components/ui/StickyBookBar.tsx`
 - Test: `tests/components/BookNowButton.test.tsx`
 
 **Interfaces:**
-- Consumes: `SITE.freshaBaseUrl` from `lib/site.ts`, optional `Service["freshaUrl"]` from `lib/services.ts`
-- Produces: `<BookNowButton href={string} label?={string} />`, `<StickyBookBar />` — used by every section in Tasks 5–9.
+- Consumes: `SITE.freshaBaseUrl`, `SITE.whatsappNumber`, `SITE.whatsappMessage` from `lib/site.ts`, optional `Service["freshaUrl"]` from `lib/services.ts`
+- Produces: `<BookNowButton href={string} label?={string} />`, `<WhatsAppButton />`, `<StickyBookBar />` — used by every section in Tasks 5–9.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -536,26 +539,51 @@ export default function BookNowButton({ href, label = "Book Now", className }: P
 Run: `npx jest tests/components/BookNowButton.test.tsx`
 Expected: PASS
 
-- [ ] **Step 5: Implement `components/ui/StickyBookBar.tsx`**
+- [ ] **Step 5: Implement `components/ui/WhatsAppButton.tsx`**
+
+```tsx
+import { SITE } from "@/lib/site";
+
+export default function WhatsAppButton({ className }: { className?: string }) {
+  const href = `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(SITE.whatsappMessage)}`;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={
+        className ??
+        "inline-block rounded-full border border-green px-6 py-3 font-display text-green transition hover:bg-green hover:text-bg"
+      }
+    >
+      Chat on WhatsApp
+    </a>
+  );
+}
+```
+
+- [ ] **Step 6: Implement `components/ui/StickyBookBar.tsx`**
 
 ```tsx
 import { SITE } from "@/lib/site";
 import BookNowButton from "./BookNowButton";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function StickyBookBar() {
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
+    <div className="fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 gap-3">
       <BookNowButton href={SITE.freshaBaseUrl} />
+      <WhatsAppButton />
     </div>
   );
 }
 ```
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
 git add components tests
-git commit -m "feat: add BookNowButton and StickyBookBar CTA components"
+git commit -m "feat: add BookNowButton, WhatsAppButton, and StickyBookBar CTA components"
 ```
 
 ---

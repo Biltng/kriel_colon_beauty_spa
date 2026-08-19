@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FAF6F1;
+  --color-bg-deep: #2E241C;
+  --color-text: #2E241C;
+  --color-accent-terracotta: #C1653B;
+  --color-accent-green: #4A5D45;
+  --color-accent-gold: #C9A24B;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}

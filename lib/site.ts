@@ -2,8 +2,7 @@ export const SITE = {
   name: "Kriel Colon & Beauty Spa",
   igHandle: "kriel_colon_beauty_spa",
   address: "Kraanvoel Avenue, Ga-Nala, Mpumalanga",
-  // TODO(client): placeholder — replace with the spa's real WhatsApp Business number before launch
-  whatsappNumber: "27000000000",
+  whatsappNumber: "27659029122",
   whatsappMessage: "Hi! I'd like to book an appointment at Kriel Colon & Beauty Spa.",
   hours: [
     { day: "Monday", open: "8:00 AM", close: "5:00 PM" },

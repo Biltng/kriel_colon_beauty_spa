@@ -14,4 +14,16 @@ describe("BookNowButton", () => {
     render(<BookNowButton href="https://www.fresha.com/example" label="Book Colon Cleansing" />);
     expect(screen.getByRole("link", { name: "Book Colon Cleansing" })).toBeInTheDocument();
   });
+
+  it("supports a distinct accessible name via ariaLabel while keeping the visible label", () => {
+    render(
+      <BookNowButton
+        href="https://www.fresha.com/example"
+        ariaLabel="Book Now – Colon Cleansing"
+      />
+    );
+    const link = screen.getByRole("link", { name: "Book Now – Colon Cleansing" });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveTextContent("Book Now");
+  });
 });

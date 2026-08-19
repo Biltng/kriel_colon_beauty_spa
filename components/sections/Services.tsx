@@ -21,7 +21,7 @@ export default function Services() {
                   </div>
                   <p className="mt-1 text-sm text-text/60">{service.durationMinutes} min</p>
                   <div className="mt-4">
-                    <BookNowButton href={service.freshaUrl} />
+                    <BookNowButton href={service.freshaUrl} ariaLabel={`Book Now – ${service.name}`} />
                   </div>
                 </RevealOnScroll>
               ))}

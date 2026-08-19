@@ -17,6 +17,17 @@ export default function Footer() {
       <div className="mt-6">
         <BookNowButton href={SITE.freshaBaseUrl} />
       </div>
+      <p className="mt-10 font-body text-xs text-bg/60">
+        Designed &amp; Maintained by{" "}
+        <a
+          href="https://www.mmso.co.za"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-gold"
+        >
+          Mosaic Studio
+        </a>
+      </p>
     </footer>
   );
 }

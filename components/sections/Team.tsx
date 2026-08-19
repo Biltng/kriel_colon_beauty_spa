@@ -7,9 +7,9 @@ export default function Team() {
     <section className="mx-auto max-w-4xl px-4 py-24 text-center">
       <h2 className="font-display text-4xl text-terracotta">Meet the Team</h2>
       <div className="mt-12 grid gap-8 md:grid-cols-3">
-        {TEAM.map((member) => (
-          <RevealOnScroll key={member.id}>
-            <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-2 border-gold">
+        {TEAM.map((member, i) => (
+          <RevealOnScroll key={member.id} variant="scale" delay={i * 0.12} className="group">
+            <div className="mx-auto h-32 w-32 overflow-hidden rounded-full border-2 border-gold transition-transform duration-300 motion-safe:group-hover:scale-105">
               <Image
                 src={member.photo}
                 alt={`${member.name}, ${member.role} at Kriel Colon & Beauty Spa`}

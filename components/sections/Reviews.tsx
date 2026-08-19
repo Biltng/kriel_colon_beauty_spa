@@ -10,8 +10,13 @@ export default function Reviews() {
           {SITE.ratingAverage} rated by {SITE.ratingCount} clients
         </h2>
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {REVIEWS.map((review) => (
-            <RevealOnScroll key={review.id} className="rounded-xl bg-bg/5 p-6 text-left">
+          {REVIEWS.map((review, i) => (
+            <RevealOnScroll
+              key={review.id}
+              variant="scale"
+              delay={(i % 2) * 0.1}
+              className="rounded-xl border border-gold/10 bg-bg/5 p-6 text-left transition-colors duration-300 hover:border-gold/30 hover:bg-bg/10"
+            >
               <p className="font-body italic">&ldquo;{review.quote}&rdquo;</p>
               <p className="mt-3 text-sm text-gold">{review.rating} / 5</p>
             </RevealOnScroll>

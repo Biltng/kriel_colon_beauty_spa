@@ -18,3 +18,10 @@ body {
   color: var(--color-text);
   font-family: var(--font-body);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

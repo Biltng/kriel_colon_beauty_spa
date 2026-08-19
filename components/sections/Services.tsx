@@ -17,9 +17,9 @@ export default function Services() {
                 <RevealOnScroll key={service.id} className="rounded-xl border border-terracotta/20 p-6">
                   <div className="flex items-center justify-between">
                     <span className="font-body text-lg">{service.name}</span>
-                    <span className="font-display text-terracotta">ZAR {service.priceZAR}</span>
+                    <span className="font-display text-[#9C4E2D]">ZAR {service.priceZAR}</span>
                   </div>
-                  <p className="mt-1 text-sm text-text/60">{service.durationMinutes} min</p>
+                  <p className="mt-1 text-sm text-text/70">{service.durationMinutes} min</p>
                   <div className="mt-4">
                     <BookNowButton href={service.freshaUrl} ariaLabel={`Book Now – ${service.name}`} />
                   </div>

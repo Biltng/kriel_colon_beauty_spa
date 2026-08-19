@@ -1,3 +1,5 @@
+import { SITE } from "./site";
+
 export type ServiceCategory =
   | "Colon Hydrotherapy"
   | "Body Treatments"
@@ -22,16 +24,13 @@ export type Service = {
   category: ServiceCategory;
 };
 
-const FRESHA_BASE =
-  "https://www.fresha.com/book-now/kriel-health-beauty-spa-fw9fio9v/all-offer?id=1427041&pId=1355234";
-
 export const SERVICES: Service[] = [
   {
     id: "colon-cleansing",
     name: "Colon Cleansing",
     durationMinutes: 60,
     priceZAR: 550,
-    freshaUrl: FRESHA_BASE,
+    freshaUrl: SITE.freshaBaseUrl,
     category: "Colon Hydrotherapy",
   },
   {
@@ -39,7 +38,7 @@ export const SERVICES: Service[] = [
     name: "LED-Light Therapy",
     durationMinutes: 60,
     priceZAR: 350,
-    freshaUrl: FRESHA_BASE,
+    freshaUrl: SITE.freshaBaseUrl,
     category: "Body Treatments",
   },
   {
@@ -47,7 +46,7 @@ export const SERVICES: Service[] = [
     name: "Dermaplaning",
     durationMinutes: 60,
     priceZAR: 400,
-    freshaUrl: FRESHA_BASE,
+    freshaUrl: SITE.freshaBaseUrl,
     category: "Facials",
   },
   {
@@ -55,7 +54,7 @@ export const SERVICES: Service[] = [
     name: "Combo: Colon Cleansing & Foot Detox",
     durationMinutes: 60,
     priceZAR: 900,
-    freshaUrl: FRESHA_BASE,
+    freshaUrl: SITE.freshaBaseUrl,
     category: "Colon Hydrotherapy",
   },
 ];

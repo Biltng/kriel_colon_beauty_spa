@@ -27,6 +27,5 @@ if (typeof window !== "undefined" && !("IntersectionObserver" in window)) {
   }
   // @ts-expect-error - jsdom does not implement IntersectionObserver
   window.IntersectionObserver = MockIntersectionObserver;
-  // @ts-expect-error - jsdom does not implement IntersectionObserver
   global.IntersectionObserver = MockIntersectionObserver;
 }

@@ -515,14 +515,15 @@ Expected: FAIL — module not found.
 - [ ] **Step 3: Implement `components/ui/BookNowButton.tsx`**
 
 ```tsx
-type Props = { href: string; label?: string; className?: string };
+type Props = { href: string; label?: string; className?: string; ariaLabel?: string };
 
-export default function BookNowButton({ href, label = "Book Now", className }: Props) {
+export default function BookNowButton({ href, label = "Book Now", className, ariaLabel }: Props) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       className={
         className ??
         "inline-block rounded-full bg-terracotta px-6 py-3 font-display text-bg transition hover:bg-gold"
@@ -684,8 +685,16 @@ describe("Services section", () => {
     render(<Services />);
     expect(screen.getByRole("heading", { name: "Colon Hydrotherapy" })).toBeInTheDocument();
   });
+
+  it("gives each service's Book Now link a distinct accessible name", () => {
+    render(<Services />);
+    expect(screen.getByRole("link", { name: "Book Now – Colon Cleansing" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Book Now – LED-Light Therapy" })).toBeInTheDocument();
+  });
 });
 ```
+
+*(Note: an earlier version of this step used `label={`Book ${service.name}`}` for visible+accessible text, which broke the `/book now/i` assertion above. Resolved during implementation via an `aria-label`-based fix — see Step 3's `BookNowButton` usage below — keeping visible text as uniform "Book Now" while giving each link a distinct accessible name, satisfying both the generic assertion and WCAG 2.4.4/2.4.9 link-purpose requirements.)*
 
 - [ ] **Step 2: Run test to verify it fails**
 
@@ -718,7 +727,10 @@ export default function Services() {
                   </div>
                   <p className="mt-1 text-sm text-text/60">{service.durationMinutes} min</p>
                   <div className="mt-4">
-                    <BookNowButton href={service.freshaUrl} label={`Book ${service.name}`} />
+                    <BookNowButton
+                      href={service.freshaUrl}
+                      ariaLabel={`Book Now – ${service.name}`}
+                    />
                   </div>
                 </RevealOnScroll>
               ))}

@@ -9,6 +9,7 @@
   --color-accent-terracotta: #C1653B;
   --color-accent-green: #4A5D45;
   --color-accent-gold: #C9A24B;
+  --color-accent-gold-dark: #93701F;
   --font-display: 'Fraunces', serif;
   --font-body: 'Inter', sans-serif;
 }
@@ -32,5 +33,32 @@ body {
   }
   50% {
     transform: translate(4%, -6%) scale(1.08);
+  }
+}
+
+@keyframes drift-slow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-6%, 5%) scale(1.12);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-120%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-15deg);
+  }
+}
+
+@keyframes quote-draw {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }

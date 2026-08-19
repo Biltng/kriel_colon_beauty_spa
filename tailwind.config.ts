@@ -11,6 +11,7 @@ export default {
         terracotta: "var(--color-accent-terracotta)",
         green: "var(--color-accent-green)",
         gold: "var(--color-accent-gold)",
+        goldDark: "var(--color-accent-gold-dark)",
       },
       fontFamily: {
         display: ["var(--font-display)"],

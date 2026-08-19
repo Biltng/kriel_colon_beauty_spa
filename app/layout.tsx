@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Kriel Colon & Beauty Spa",
-  description: "Kriel Colon & Beauty Spa",
+  title: `${SITE.name} | ${SITE.address}`,
+  description:
+    "Colon hydrotherapy, body treatments, and facials in Kriel, Mpumalanga. Book your appointment today.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

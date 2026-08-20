@@ -40,13 +40,13 @@ export default function Services() {
                       aria-hidden
                       className={
                         dark
-                          ? "absolute -right-10 top-4 rotate-45 bg-gold px-10 py-1 font-display text-sm text-bgDeep"
-                          : "absolute -right-10 top-4 rotate-45 bg-terracotta px-10 py-1 font-display text-sm text-bg"
+                          ? "absolute right-4 top-4 rounded-full bg-gold px-3 py-1 font-display text-sm text-bgDeep"
+                          : "absolute right-4 top-4 rounded-full bg-terracotta px-3 py-1 font-display text-sm text-bg"
                       }
                     >
                       ZAR {service.priceZAR}
                     </span>
-                    <span className="font-body text-lg">{service.name}</span>
+                    <span className="block max-w-[calc(100%-6.5rem)] font-body text-lg">{service.name}</span>
                     <p className={dark ? "mt-1 text-sm text-bg/60" : "mt-1 text-sm text-text/70"}>
                       {service.durationMinutes} min
                     </p>

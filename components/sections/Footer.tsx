@@ -3,7 +3,7 @@ import BookNowButton from "@/components/ui/BookNowButton";
 
 export default function Footer() {
   return (
-    <footer className="bg-bgDeep px-4 py-16 text-center text-bg">
+    <footer id="site-footer" className="bg-bgDeep px-4 pb-32 pt-16 text-center text-bg">
       <p className="font-display text-2xl">{SITE.name}</p>
       <p className="mt-2 font-body">{SITE.address}</p>
       <a

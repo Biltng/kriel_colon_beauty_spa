@@ -23,17 +23,30 @@ export default function Hero() {
     >
       <motion.div
         style={{ y: imageY }}
+        initial={reduced ? false : { clipPath: "inset(0 0 100% 0)" }}
+        animate={{ clipPath: "inset(0 0 0% 0)" }}
+        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="absolute inset-0 -top-[10%] h-[120%] bg-[url('/images/hero-spa.jpg')] bg-cover bg-center opacity-60"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-bgDeep/20 via-transparent to-bgDeep" />
 
+      {/* Aurora wash: three drifting color-field blobs blending the brand palette */}
       <div
         aria-hidden
-        className="motion-safe:animate-[drift_18s_ease-in-out_infinite] absolute -left-1/4 top-1/4 h-[60vw] w-[60vw] rounded-full bg-terracotta/20 blur-3xl motion-reduce:hidden"
+        className="motion-safe:animate-[drift_18s_ease-in-out_infinite] absolute -left-1/4 top-1/4 h-[60vw] w-[60vw] rounded-full bg-terracotta/25 blur-3xl motion-reduce:hidden"
       />
       <div
         aria-hidden
-        className="motion-safe:animate-[drift_22s_ease-in-out_infinite_reverse] absolute -right-1/4 bottom-0 h-[50vw] w-[50vw] rounded-full bg-gold/20 blur-3xl motion-reduce:hidden"
+        className="motion-safe:animate-[drift-slow_24s_ease-in-out_infinite] absolute -right-1/4 bottom-0 h-[50vw] w-[50vw] rounded-full bg-gold/25 blur-3xl motion-reduce:hidden"
+      />
+      <div
+        aria-hidden
+        className="motion-safe:animate-[drift_20s_ease-in-out_infinite_reverse] absolute left-1/3 bottom-1/4 h-[40vw] w-[40vw] rounded-full bg-green/20 blur-3xl motion-reduce:hidden"
+      />
+      {/* Warm gold "lamp" glow seated behind the headline */}
+      <div
+        aria-hidden
+        className="absolute left-1/2 top-1/2 h-[50vh] w-[50vh] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/20 blur-[100px]"
       />
 
       <motion.div
@@ -65,7 +78,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: reduced ? 0 : 0.15 * HEADLINE_WORDS.length + 0.3 }}
         >
-          <BookNowButton href={SITE.freshaBaseUrl} />
+          <BookNowButton href={SITE.freshaBaseUrl} magnetic />
         </motion.div>
       </motion.div>
 
